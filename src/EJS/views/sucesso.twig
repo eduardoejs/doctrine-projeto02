@@ -1,0 +1,10 @@
+{% extends "layout.twig" %}
+{% block title %}Sucesso{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h2>Produto Casdastrado com sucesso!!!</h2>
+        <a href="{{ path('novo') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastar Outro</button></a>
+        <a href="{{ path('index') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "layout.twig" %}
+{% block title %}Lista de produtos{% endblock %}
+{% block content %}
+    <div class="jumbotron">
+        <div class="col-lg-12">
+            <h4 align="center">Entrar na lista de Produtos</h4>
+            <div class="col-lg-12">
+                <h4 align="center"><a href="{{ path('listar_produtos_paginado', {pagina:1 } ) }}"><button class="btn btn-info " type="submit" name="voltar" >Lista de produtos</button></a></h4>
+            </div>
+        </div>
+    </div><!-- /jumbotron -->
+{% endblock %}

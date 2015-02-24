@@ -1,0 +1,56 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="jumbotron">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+
+                <th><a href="{{ url('novo') }}"><button class="btn btn-success " type="submit" name="cadastra" >Cadastar</button></a></th>
+
+            </tr>
+            </thead>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>DESCRIÇÃO</th>
+                <th>VALOR</th>
+                <th></th>
+                <th>AÇÕES</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.id }}</td>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.descricao }}</td>
+                    <td>{{ produto.valor }}</td>
+
+                    <td><a href="{{ path('visualizar', {id:produto.id}) }}"><button class="btn btn-primary " type="submit" name="visualizar" >Visualizar</button></a></td>
+                    <td><a href="{{ path('alterar', {id:produto.id}) }}"><button class="btn btn-warning" type="submit" name="alterar" >Alterar</button></a></td>
+                    <td><a href="{{ path('excluir', {id:produto.id}) }}"><button class="btn btn-danger" type="submit" name="deletar">Deletar</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <nav>
+            <ul class="pagination">
+
+                {% if((data/5)>1) %}
+                    {% for i in 1..((data/5)+0.8) %}
+                        <li><a href="{{ path('listar_produtos_paginado', {pagina:i } ) }}">{{ i }}</a></li>
+                    {% endfor %}
+                {% endif %}
+                {% if(data <= 5) %}
+                    <li><a href="{{ path('listar_produtos_paginado', {pagina:1 } ) }}">{{ 1 }}</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </div><!-- /jumbotron -->
+{% endblock %}

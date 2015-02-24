@@ -1,0 +1,10 @@
+{% extends "layout.twig" %}
+{% block title %}Status{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h2>{{ status.STATUS}}</h2>
+        <a href="{{ path('novo') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastrar Novo Produto</button></a>
+        <a href="{{ path('index') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista de Produtos</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}
